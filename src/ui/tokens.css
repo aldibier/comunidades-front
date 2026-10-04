@@ -124,6 +124,27 @@ a { color: var(--accent-strong); }
   margin: 1.75rem 0 0;
 }
 
+.cf-main.cf-login .cf-button {
+  gap: 0.75rem;
+}
+
+.cf-google {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.cf-google svg {
+  display: block;
+  width: 1.45rem;
+  height: 1.45rem;
+}
+
 .cf-main.cf-login .cf-meta {
   margin: 1.15rem auto 0;
 }
@@ -534,12 +555,12 @@ a { color: var(--accent-strong); }
   .cf-filters { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
   .cf-main.cf-login {
-    width: 24rem;
+    width: 28rem;
     padding: max(4.5rem, 12vh) 2rem 3rem;
   }
 
   .cf-main.cf-login .cf-button,
   .cf-main.cf-login .cf-meta {
-    width: 16rem;
+    width: 19rem;
   }
 }
