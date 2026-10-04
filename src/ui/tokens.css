@@ -209,6 +209,33 @@ a { color: var(--accent-strong); }
   color: var(--ink-soft);
 }
 
+.cf-notice {
+  margin: 0.85rem 0 1.25rem;
+  padding: 0.9rem 1rem 0.35rem;
+  scroll-margin-top: 0.75rem;
+  background: var(--gold);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+}
+
+.cf-notice-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.cf-notice > p { margin: 0.25rem 0 0; }
+
+.cf-notice .cf-actions { margin: 0.5rem 0 0.35rem; }
+
+.cf-notice .cf-actions a,
+.cf-notice .cf-actions button {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 .cf-button,
 .cf-quiet {
   display: inline-flex;

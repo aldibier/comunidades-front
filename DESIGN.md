@@ -24,7 +24,7 @@ La persona registrada es el objeto de la interfaz. Su nombre va en Montserrat Bo
 
 ## Composición
 
-Una columna de 40rem, alineada a la izquierda. En el acceso, el símbolo, el wordmark y el eslogan van centrados. En el teléfono, la navegación queda abajo y el botón primario ocupa el ancho. En escritorio, la navegación es una columna quieta con el símbolo, el wordmark “EFATA” y el eslogan “Comunidades en Cristo”. Las fichas se separan con una línea, no con tarjetas. El celular abre WhatsApp.
+Una columna de 40rem, alineada a la izquierda. En el acceso, el símbolo, el wordmark y el eslogan van centrados. En el teléfono, la navegación queda abajo y el botón primario ocupa el ancho. En escritorio, la navegación es una columna quieta con el símbolo, el wordmark “EFATA” y el eslogan “Comunidades en Cristo”. Las fichas se separan con una línea, no con tarjetas. El celular abre WhatsApp. Un registro guardado se confirma con un aviso de fondo ocre, texto y borde en azul, sin sombra.
 
 ## Marca
 

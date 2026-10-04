@@ -64,8 +64,11 @@ export function RegistryFormPage() {
   const nameField = form.register('name', { required: 'Escribe el nombre.' })
   const nameRef = useRef<HTMLInputElement | null>(null)
   const eventPreset = useRef(false)
+  const noticeReady = useRef(false)
   const [saved, setSaved] = useState<{ id: string; name: string } | null>(null)
+  const noticeRef = useRef<HTMLDivElement | null>(null)
   const [more, setMore] = useState(editing)
+  const typedName = form.watch('name')
   const save = useMutation({
     mutationFn: async ({ input, intent }: { input: RegistryInput; intent: 'stay' | 'open' }) => {
       if (uuid) {
@@ -96,7 +99,6 @@ export function RegistryFormPage() {
         prayer: '',
         notes: '',
       })
-      nameRef.current?.focus()
     },
   })
 
@@ -118,6 +120,24 @@ export function RegistryFormPage() {
   }, [person.data, stages.data, cities.data, sectors.data, eventsReady, form])
 
   useEffect(() => {
+    if (!saved) return
+    noticeRef.current?.scrollIntoView({ block: 'nearest' })
+    nameRef.current?.focus({ preventScroll: true })
+  }, [saved])
+
+  useEffect(() => {
+    if (!saved) {
+      noticeReady.current = false
+      return
+    }
+    if (typedName.trim() === '') {
+      noticeReady.current = true
+      return
+    }
+    if (noticeReady.current) setSaved(null)
+  }, [saved, typedName])
+
+  useEffect(() => {
     if (editing || eventPreset.current || !events.data) return
     const open = events.data.filter((item) => item.open)
     const requested = open.find((item) => item.id === params.get('evento'))
@@ -137,10 +157,19 @@ export function RegistryFormPage() {
     <>
       <h1>{editing ? 'Corregir datos' : 'Registrar a alguien'}</h1>
       {saved && (
-        <div role="status">
-          <p className="cf-lead">Quedó el registro de {saved.name}.</p>
+        <div className="cf-notice" role="status" ref={noticeRef}>
+          <p className="cf-notice-title">Guardado</p>
+          <p>Quedó el registro de {saved.name}.</p>
           <p className="cf-actions">
-            <button type="button" onClick={() => nameRef.current?.focus()}>Registrar a otra persona</button>
+            <button
+              type="button"
+              onClick={() => {
+                setSaved(null)
+                nameRef.current?.focus()
+              }}
+            >
+              Registrar a otra persona
+            </button>
             <Link to={`/evangelismo/${saved.id}`}>Ver la ficha</Link>
           </p>
         </div>
